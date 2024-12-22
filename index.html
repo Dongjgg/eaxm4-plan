@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
+    <meta name="Keywords" content="教育,培训,英语,外语,背单词,托福,雅思,GRE,高考,SAT">
+    <title>背单词计划表生成器</title>
+    <link rel="icon" href="data:image/x-icon;base64,AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADblxRA2pYS39qXEp8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADalRNg2pYS39uWEv/blhL/25YS/9qWEt/blxRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA25USgNuWEv/blhL/25YS/9uWEv/blhL/25YS/9uWEv/blxRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA25cUQNuWEb/blhL/25YS/9uWEv/blhL/25YS/9qWEt8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANuWEb/blhL/25YS/9uWEv/blhL/25YS/9uVEoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA15cQINuWEv/blhL/25YS/9uWEv/blhL/2pYS3wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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Ev/XlxAgAAAAAAAAAADalhLf25YS/9uWEv/blhL/25YS/9qVE2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANuXFEDblhL/25YS/9uWEv/blhL/25YS/9uWEv/blhL/25YS/9uWEv/blhL/25YS/9uWEv/blhL/25YS/9eXECAAAAAAAAAAANqWEt/blhL/25YS/9uWEv/blhL/2pUTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANeXECDblhG/25YS/9uWEv/blhL/25YS/9uWEv/blhL/25YS/9uWEv/blhL/25YS/9uWEv/blhL/15cQIAAAAAAAAAAA2pYS39uWEv/blhL/25YS/9uWEv/alRNgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADblRKA25YRv9uWEv/blhL/25YS/9uWEv/blhL/25YS/9uWEv/blhL/25YS/9uWEv/XlxAgAAAAAAAAAADblhG/2pYS39qWEt/alhLf2pYS39qVE2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANeXECDblxRA25cUQNeXECDblhL/25YS/9uWEv/blhL/25YS/9eXECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA15cQINuWEv/blhL/25YS/9uWEv/blhL/15cQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXlxAg25YS/9uWEv/blhL/25YS/9uWEv/XlxAgAAAAAAAAAADalRNg2pUTYNqVE2DalRNg2pUTYNeXECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANeXECDblhL/25YS/9uWEv/blhL/25YS/9eXECAAAAAAAAAAANqWEt/blhL/25YS/9uWEv/blhL/2pUTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA15cQINuWEv/blhL/25YS/9uWEv/blhL/15cQIAAAAAAAAAAA2pYS39uWEv/blhL/25YS/9uWEv/alRNgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADXlxAg25YS/9uWEv/blhL/25YS/9uWEv/XlxAgAAAAAAAAAADalhLf25YS/9uWEv/blhL/25YS/9qVE2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANeXECDblhL/25YS/9uWEv/blhL/25YS/9eXECAAAAAAAAAAANqWEt/blhL/25YS/9uWEv/blhL/2pUTYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA15cQINuWEv/blhL/25YS/9uWEv/blhL/15cQIAAAAAAAAAAA2pYS39uWEv/blhL/25YS/9uWEv/alRNgAAAAAAAAAAAAAAAA///4////4D///8Af///gH///+A////gP///8D/8ADAf8AAQH+AAGB/AABgfwAAYH8BwGB+A8BgfgPAYH4HwGB+B8BgfwPAYH8DwGB/AMBgf4AAYH+AAGB/wABgf/AAYH/+AH///8B////AYH//wGB//8Bgf//AYH//wGB//8Bgc=" type="image/x-icon">
+    <style>
+        :root {
+            --primary-color: #1e40af; /* 主色，蓝色 */
+            --secondary-color: #10b981; /* 次要颜色，绿色 */
+            --task-color: #3b82f6; /* 新学习任务颜色，亮蓝色 */
+            --review-color: #1e40af; /* 复习任务颜色，主色相同 */
+            --border-color: #e5e7eb;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-hover: #f3f4f6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.5;
+            color: var(--text-primary);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            background-color: #f9fafb;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin: 2rem 0;
+            font-size: 1.5rem;
+        }
+
+        .container {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            flex: 0 0 300px;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.875rem;
+        }
+
+        .form-group input[type="checkbox"] {
+            width: auto;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            background: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: background 0.3s, opacity 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .notes {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .notes p {
+            margin-bottom: 0.5rem;
+        }
+
+        .calendar-container {
+            flex: 1;
+            min-width: 700px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem;
+        }
+
+        .weekdays span {
+            text-align: center;
+            font-size: 0.875rem;
+            padding: 0.5rem;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+
+        .calendar-day {
+            border: 1px solid var(--border-color);
+            padding: 0.5rem;
+            min-height: 120px;
+            position: relative;
+        }
+
+        .date {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .task {
+            font-size: 0.75rem;
+            margin: 0.25rem 0;
+            color: var(--task-color); /* 新学习任务颜色 */
+        }
+
+        .task.review {
+            color: var(--review-color); /* 复习任务颜色 */
+        }
+
+        @media (max-width: 1024px) {
+            /* 针对平板设备的调整 */
+            .sidebar {
+                flex: 0 0 250px;
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.25rem;
+            }
+
+            .calendar-day {
+                min-height: 100px;
+            }
+
+            .weekdays span {
+                font-size: 0.8rem;
+                padding: 0.4rem;
+            }
+
+            .task, .task.review {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* 针对手机设备的调整 */
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                flex: 0 0 auto;
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .calendar-container {
+                min-width: 100%;
+            }
+
+            h1 {
+                font-size: 1.2rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .calendar-day {
+                min-height: 80px;
+                padding: 0.3rem;
+            }
+
+            .weekdays span {
+                font-size: 0.7rem;
+                padding: 0.3rem;
+            }
+
+            .task, .task.review {
+                font-size: 0.6rem;
+            }
+
+            .notes p {
+                font-size: 0.65rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* 针对更小的手机设备 */
+            .sidebar {
+                padding: 0.8rem;
+            }
+
+            h1 {
+                font-size: 1rem;
+            }
+
+            .form-group label {
+                font-size: 0.75rem;
+            }
+
+            .form-group input {
+                padding: 0.4rem;
+                font-size: 0.75rem;
+            }
+
+            .button-group {
+                gap: 0.5rem;
+            }
+
+            button {
+                padding: 0.4rem;
+                font-size: 0.75rem;
+            }
+
+            .calendar-day {
+                min-height: 60px;
+                padding: 0.2rem;
+            }
+
+            .weekdays span {
+                font-size: 0.6rem;
+                padding: 0.2rem;
+            }
+
+            .task, .task.review {
+                font-size: 0.5rem;
+            }
+
+            .notes p {
+                font-size: 0.6rem;
+            }
+        }
+
+        @media print {
+            .sidebar {
+                display: none;
+            }
+
+            .calendar-container {
+                box-shadow: none;
+            }
+
+            body {
+                padding: 0;
+            }
+        }
+    </style>
+    <!-- 引入 html2canvas 库 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- 阻止开发者工具和查看源代码的脚本 -->
+    <script>
+        (function() {
+            // 阻止右键菜单
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            });
+
+            // 阻止特定的快捷键
+            document.addEventListener('keydown', function (e) {
+                // 按键码参考：https://keycode.info/
+                const forbiddenKeys = [
+                    { key: 'F12', code: 123 },
+                    { key: 'I', code: 73, ctrl: true, shift: true },
+                    { key: 'J', code: 74, ctrl: true, shift: true },
+                    { key: 'U', code: 85, ctrl: true }
+                ];
+
+                forbiddenKeys.forEach(function(item) {
+                    if (
+                        e.keyCode === item.code &&
+                        e.key.toUpperCase() === item.key &&
+                        (item.ctrl ? e.ctrlKey : true) &&
+                        (item.shift ? e.shiftKey : true)
+                    ) {
+                        e.preventDefault();
+                        location.reload();
+                    }
+                });
+            });
+
+            // 检测窗口大小变化（可能由于打开开发者工具）
+            let devtoolsOpen = false;
+            const threshold = 160; // 根据需要调整
+
+            window.addEventListener('resize', function() {
+                if (window.outerWidth - window.innerWidth > threshold || window.outerHeight - window.innerHeight > threshold) {
+                    if (!devtoolsOpen) {
+                        devtoolsOpen = true;
+                        location.reload();
+                    }
+                } else {
+                    devtoolsOpen = false;
+                }
+            });
+
+            // 定期检测开发者工具是否打开
+            setInterval(function() {
+                const element = new Image();
+                Object.defineProperty(element, 'id', {
+                    get: function() {
+                        devtoolsOpen = true;
+                        
+                        location.reload();
+                    }
+                });
+                console.log(element);
+            }, 10);
+        })();
+    </script></head>
+<body>
+    <h1 id="title">背单词计划表</h1>
+    
+    <div class="container">
+        <div class="sidebar">
+            <form id="planForm">
+                <div class="form-group">
+                    <label for="plan">计划名</label>
+                    <input type="text" id="plan" placeholder="例如：GRE 单词计划">
+                </div>
+                <div class="form-group">
+                    <label for="book">List 名</label>
+                    <input type="text" id="book" placeholder="例如：List A">
+                </div>
+                <div class="form-group">
+                    <label for="startDate">开始日期</label>
+                    <input type="date" id="startDate">
+                </div>
+                <div class="form-group">
+                    <label for="listPerDay">每天 List/Page</label>
+                    <input type="number" id="listPerDay" min="1" value="2">
+                </div>
+                <div class="form-group">
+                    <label for="totalList">List/Page 总数</label>
+                    <input type="number" id="totalList" min="1" value="42">
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="reverse">
+                        是否逆序
+                    </label>
+                </div>
+                <div class="button-group">
+                    <button type="submit" id="generate">生成计划表</button>
+                    <button type="button" onclick="window.print()">打印/导出PDF</button>
+                    <button type="button" id="saveAsImage">保存为长图</button>
+                </div>
+            </form>
+            <div class="notes">
+                <p>注1：本工具可用于生成任意复习计划表，不仅限于GRE单词。</p>
+                <p>注2：时间间隔遵循艾宾浩斯记忆曲线，为1,2,4,7,15天。</p>
+                <p>注3：星号(*)表示复习。建议上午学习新内容，下午或晚上复习标星内容。</p>
+                <p>注4：本页面支持直接打印或导出PDF。打印时将自动隐藏侧边栏。</p>
+		<p>注5：本工具基于exam4二次开发，原版请用 <a href="https://exam4.us" target="_blank" rel="noopener noreferrer">exam4.us</a></p>
+            </div>
+        </div>
+
+        <div class="calendar-container">
+            <div class="weekdays">
+                <span>周日</span>
+                <span>周一</span>
+                <span>周二</span>
+                <span>周三</span>
+                <span>周四</span>
+                <span>周五</span>
+                <span>周六</span>
+            </div>
+            <div id="calendar" class="calendar"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化表单数据
+            const form = {
+                plan: document.getElementById('plan'),
+                book: document.getElementById('book'),
+                startDate: document.getElementById('startDate'),
+                listPerDay: document.getElementById('listPerDay'),
+                totalList: document.getElementById('totalList'),
+                reverse: document.getElementById('reverse')
+            };
+
+            // 从localStorage加载保存的值
+            form.plan.value = localStorage.getItem('plan') || '背单词计划表';
+            form.book.value = localStorage.getItem('book') || 'L';
+            form.listPerDay.value = localStorage.getItem('listPerDay') || '2';
+            form.totalList.value = localStorage.getItem('totalList') || '42';
+            form.reverse.checked = JSON.parse(localStorage.getItem('reverse')) || false;
+            form.startDate.value = localStorage.getItem('startDate') || new Date().toJSON().slice(0, 10);
+
+            function generateCalendar(e) {
+                e && e.preventDefault();
+
+                // 保存表单数据到localStorage
+                for (let key in form) {
+                    localStorage.setItem(key, form[key].type === 'checkbox' ? form[key].checked : form[key].value);
+                }
+
+                // 更新标题
+                document.getElementById('title').textContent = form.plan.value;
+
+                // 计算日期
+                const startDate = new Date(form.startDate.value);
+                const weekday = startDate.getDay();
+                const firstLineSunday = new Date(startDate - weekday * 86400000);
+                
+                // 生成计划数组
+                const listPerDay = parseInt(form.listPerDay.value);
+                const totalList = parseInt(form.totalList.value);
+                const plan = [];
+                
+                for (let i = 0, l = Math.ceil(totalList / listPerDay); i < l; i++) {
+                    const tmp = [];
+                    for (let j = 1; j <= listPerDay; j++) {
+                        const k = i * listPerDay + j;
+                        if (k <= totalList) tmp.push(k);
+                    }
+                    plan.push(tmp.length === 1 ? tmp[0].toString() : `${tmp[0]}~${tmp[tmp.length-1]}`);
+                }
+
+                // 清空并重建日历
+                const calendar = document.getElementById('calendar');
+                calendar.innerHTML = '';
+                
+                const totalDays = Math.ceil(totalList / listPerDay) + 29 + weekday;
+                
+                for (let i = 0; i < totalDays; i++) {
+                    const currentDay = new Date(firstLineSunday.getTime() + i * 86400000);
+                    const dayDiv = document.createElement('div');
+                    dayDiv.className = 'calendar-day';
+                    
+                    // 添加日期
+                    const dateDiv = document.createElement('div');
+                    dateDiv.className = 'date';
+                    dateDiv.textContent = `${currentDay.getMonth() + 1}/${currentDay.getDate()}`;
+                    dayDiv.appendChild(dateDiv);
+
+                    calendar.appendChild(dayDiv);
+                }
+
+                // 添加学习和复习内容
+                const days = calendar.children;
+                const reversed = form.reverse.checked;
+
+                // 添加新学习内容
+                for (let i = 0; i < plan.length; i++) {
+                    const dayIndex = weekday + i;
+                    const listNum = reversed ? plan[plan.length - 1 - i] : plan[i];
+                    
+                    if (days[dayIndex]) {
+                        const task = document.createElement('div');
+                        task.className = 'task';
+                        task.textContent = `${form.book.value} ${listNum}`;
+                        days[dayIndex].appendChild(task);
+                    }
+                }
+
+                // 添加复习内容
+                const reviewIntervals = [0, 1, 3, 7, 14, 29];
+                for (let i = 0; i < plan.length; i++) {
+                    const listNum = reversed ? plan[plan.length - 1 - i] : plan[i];
+                    
+                    reviewIntervals.forEach(interval => {
+                        const dayIndex = weekday + i + interval;
+                        if (days[dayIndex]) {
+                            const review = document.createElement('div');
+                            review.className = 'task review';
+                            review.textContent = `* ${form.book.value} ${listNum}`;
+                            days[dayIndex].appendChild(review);
+                        }
+                    });
+                }
+            }
+
+            // 绑定表单提交事件
+            document.getElementById('planForm').addEventListener('submit', generateCalendar);
+
+            // 初始生成日历
+            generateCalendar();
+
+            // 添加保存为长图的功能
+            document.getElementById('saveAsImage').addEventListener('click', function() {
+                const calendarContainer = document.querySelector('.calendar-container');
+
+                html2canvas(calendarContainer, { scale: 2 }).then(canvas => {
+                    // 创建一个临时的链接元素
+                    const link = document.createElement('a');
+                    link.href = canvas.toDataURL('image/png');
+                    link.download = `${form.plan.value}.png`;
+                    link.click();
+                }).catch(err => {
+                    console.error('保存为长图失败:', err);
+                    alert('保存为长图时出错，请稍后再试。');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
